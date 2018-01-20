@@ -253,15 +253,14 @@ def ffmpeg_parse_infos(filename, print_infos=False, check_duration=True,
     if os.name == "nt":
         popen_params["creationflags"] = 0x08000000
 
-    proc = sp.Popen(cmd, **popen_params)
-
-    proc.stdout.readline()
-    proc.terminate()
-    infos = proc.stderr.read().decode('utf8')
-    proc.stdout.close()
-    proc.stderr.close()
-    proc.wait()
-    del proc
+    with sp.Popen(cmd, **popen_params) as proc:
+        proc.stdout.readline()
+        proc.terminate()
+        infos = proc.stderr.read().decode('utf8')
+        #proc.stdout.close()
+        #proc.stderr.close()
+        #proc.wait()
+        #del proc
 
     if print_infos:
         # print the whole info text returned by FFMPEG
