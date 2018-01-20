@@ -21,24 +21,6 @@ environment:
      #    Test the latest known patch in each version
      #    Test the oldest and the newest 32 bit release. 64-bit otherwise.
   
-    - PYTHON: "C:\\Python27-x64"
-      PYTHON_VERSION: "2.7.13"
-      PYTHON_ARCH: "64"
-      MINICONDA: C:\Miniconda
-      CONDA_INSTALL: "numpy"
-      
-    - PYTHON: "C:\\Python33-x64"
-      PYTHON_VERSION: "3.3.5"
-      PYTHON_ARCH: "64"
-      MINICONDA: C:\Miniconda3-x64
-      CONDA_INSTALL: "numpy"
-
-    - PYTHON: "C:\\Python34-x64"
-      PYTHON_VERSION: "3.4.5"
-      PYTHON_ARCH: "64"
-      MINICONDA: C:\Miniconda3-x64
-      CONDA_INSTALL: "numpy"
-
     - PYTHON: "C:\\Python35-x64"
       PYTHON_VERSION: "3.5.3"
       PYTHON_ARCH: "64"
