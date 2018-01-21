@@ -180,8 +180,10 @@ class FFMPEG_VideoWriter:
     def close(self):
         if self.proc:
             self.proc.terminate()
-            self.proc.stdout.close()
-            self.proc.stderr.close()
+            if self.proc.stdout:
+                self.proc.stdout.close()
+            if self.proc.stderr:
+                self.proc.stderr.close()
             self.proc.wait()
             self.proc = None
         if hasattr(self, 'lastread'):
