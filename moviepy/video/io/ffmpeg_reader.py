@@ -193,6 +193,7 @@ class FFMPEG_VideoReader:
             self.proc = None
         if hasattr(self, 'lastread'):
             del self.lastread
+        self.proc = None
 
 
 def ffmpeg_read_image(filename, with_mask=True):
