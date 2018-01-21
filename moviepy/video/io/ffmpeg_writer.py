@@ -179,16 +179,15 @@ class FFMPEG_VideoWriter:
 
     def close(self):
         if self.proc:
-            self.proc.terminate()
-            if self.proc.stdout:
+            # self.proc.terminate()
+            self.proc.stdin.close()
+            if self.proc.stdout is not None:
                 self.proc.stdout.close()
-            if self.proc.stderr:
+            if self.proc.stderr is not None:
                 self.proc.stderr.close()
-            self.proc.wait()
+            self.proc.wait(5)
+            del self.proc
             self.proc = None
-        if hasattr(self, 'lastread'):
-            del self.lastread
-        self.proc = None
 
     # Support the Context Manager protocol, to ensure that resources are cleaned up.
 
